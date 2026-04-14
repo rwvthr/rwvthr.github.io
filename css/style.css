@@ -1,0 +1,383 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=League+Gothic&display=swap');
+
+
+/* PREDEFINIÇÕES INICIAIS */
+
+
+/* Centralização do site */
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+    padding: 0 20px;
+}
+/* Garantir consistência do css ao recarregar a página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Manter o rodapé fixo embaixo */
+div#empurra-rodape {
+    flex: 1;    /* Para empurrar o rodapé para baixo */
+}
+
+/* Corpo / Tela de Carregamento */
+body {
+    /* Centralização e scrool*/
+    overflow-x: hidden !important;
+    margin: 0;
+    
+    min-height: 100vh;  /* Garantir ocupação de 100% da tela independete do nível de zoom */
+    position: relative;
+    
+    background-color: #0A0E17;
+    color: white;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+
+/* ---------------------------------- */
+
+
+/* --- BACKGROUNDS --- */
+
+
+.slide {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+}
+/* Cabeçalho */
+.slide-um {
+    background: linear-gradient(145deg, #0B132B 0%, #0F1D3A 50%, #0A1628 100%);
+    scroll-margin-top: 999px;
+}
+/* Módulos*/
+.slide-dois {
+    background: linear-gradient(135deg, #0E1A30 0%, #122244 50%, #0B1628 100%);
+}
+/* Fórmulas */
+.slide-tres {
+    background: linear-gradient(145deg, #0B132B 0%, #0F1D3A 50%, #0A1628 100%);
+}
+/* ---------------------------------------------------------- */
+.slide-quatro {
+    background: linear-gradient(135deg, #0E1A30 0%, #122244 50%, #0B1628 100%);
+}
+
+.slide-cinco {
+    background: linear-gradient(145deg, #0B132B 0%, #0F1D3A 50%, #0A1628 100%);
+}
+
+.slide-seis {
+    background: linear-gradient(135deg, #0E1A30 0%, #122244 50%, #0B1628 100%);
+}
+
+/* ---------------------------------------------------------- */
+
+
+
+/* --- CABEÇALHO --- */
+
+
+/* Formatação */
+header#cabecalho {
+    margin-top: 400px;
+    margin-bottom: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Título*/
+header#cabecalho h1 {
+    font-size: 58pt;
+    font-family: 'Google Sans', 'Fjalla One', sans-serif;
+    background: linear-gradient(135deg, #00D2FF 0%, #3AE6F0 50%, #0077E6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 0;
+    
+}
+/* Subtítulo */
+header#cabecalho h2 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    font-size: 16pt;
+    font-family: 'Google Sans', 'Fjalla ', sans-serif;
+    color: white;
+
+}
+
+/* Botão */
+header#cabecalho button {
+    margin-top: 90px;
+    background: linear-gradient(135deg, #0077E6, #00B4D8);
+    color: #ffffff;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 50px;
+    border: 1px solid #00D2FF;
+    font-size: 20pt;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+header#cabecalho a{
+    text-decoration: none;
+    text-shadow: 10px black;
+}
+
+.textobotao {
+    font-family: 'Fjalla One', sans-serif;
+    letter-spacing: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.514);
+
+}
+
+header#cabecalho button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+}
+
+
+/* ---------------------------------------------------------- */
+
+
+/* --- MODULOS --- */
+
+/* PREDEFINIÇÕES */
+.modulos {
+    margin: 0 auto;
+    scroll-margin-top: 100px;
+}
+/* Formatação de Texto */
+.texto {
+    font-family: 'Google Sans', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-size: 18pt;
+    line-height: 1.5;
+    text-align: justify;
+    justify-content: center;
+}
+/* Espaço entre parágrafos */
+.texto p {
+    margin-bottom: 40px;
+}
+
+
+.titulos {
+    font-family: 'Google Sans', sans-serif;
+    justify-content: left;
+    text-align: left;
+    margin-top: 100px;
+    margin-bottom: 90px;
+    font-size: 40pt;
+    background: linear-gradient(135deg, #00D2FF 0%, #3AE6F0 50%, #0077E6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.alinhamento-titulo {
+    margin-bottom: 90px;
+    margin-left: -200px;
+}
+
+
+/* ---------------------------------------------------------- */
+
+
+/* MÓDULO 1 */
+
+
+/* Divisão */
+div#modulo1 {
+    
+}
+
+/* ---------------------------------------------------------- */
+
+/* MÓDULO 2 */
+
+/* Divisão */
+div#modulo2 {
+
+}
+
+/* ---------------------------------------------------------- */
+
+/* MÓDULO 3 */
+
+/* Divisão */
+div#modulo3 {
+
+}
+
+/* ---------------------------------------------------------- */
+
+
+/* MÓDULO 4 */
+
+div#modulo4 {
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+
+/* Fórmulas */
+.formulas {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+}
+
+
+/* ---------------------------------------------------------- */
+
+
+
+/* --- FÓRMULAS --- */
+
+
+div#formula-box {
+    scroll-margin-top: 100px;
+    
+    display: grid;
+    grid-template-columns: repeat( auto);
+    justify-content: center;
+
+    gap: 40px;
+    margin-top: -25px;
+}
+
+.titlebox {
+    margin-top: 40px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+
+    font-size: 18pt;
+    font-family: 'Montserrat', sans-serif;
+
+    background: linear-gradient(135deg, #00D2FF 0%, #3AE6F0 50%, #0077E6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+}
+
+.textbox {
+    margin-top: 40px;
+    display: flex;
+    justify-content: justify;
+    text-align: justify;
+    margin-bottom: 40px;
+
+    font-size: 13pt;
+
+    white-space: wrap;
+    width: auto;
+
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+    color: #cfcfcf;
+    font-weight: 400;
+}
+
+.legendbox {
+    font-family: 'Montserrat', sans-serif;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+
+    gap: 15px;          
+    color: #aeb3b9;      
+    font-size: 14px;
+    text-align: justify;
+    
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.titlebox, .textbox, .legendbox {
+    margin-left: 5%;  /* Usa porcentagem em vez de px fixo */
+    margin-right: 5%;
+    width: auto;      /* Garante que não ultrapasse o pai */
+}
+
+
+
+/* Colunas */
+.boxes {
+    margin-top: 40px ;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 1000px;
+
+    height: auto;
+    width: 95%;
+
+    border-radius: 20px;
+
+    background-color: #121E3A;
+    border: 1.5px solid #00D2FF;
+    border-left: 6px solid #00D2FF;
+
+    transition: 0.4s ease;
+}
+
+.boxes:hover {
+    scale: 1.02;
+    border-color: #00D2FF;
+    box-shadow: rgba(0, 180, 216, 0.3) 0px 0px 20px;
+} 
+
+
+/* Fórmulas das caixas */
+.formulas-box {
+    padding: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que elementos da fórmula desçam se não couberem */
+    text-align: center;
+}

@@ -1,0 +1,931 @@
+/* ============================================================
+   RESPONSIVO COMPLETO — CalcNexus
+   ============================================================ */
+
+/* ============================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES BASE
+   ============================================================ */
+:root {
+    --base-font-multiplier: 1;
+    --container-padding: clamp(12px, 4vw, 40px);
+    --gap-multiplier: clamp(8px, 2vw, 24px);
+}
+
+html {
+    font-size: clamp(14px, 1.2vw, 18px);
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 1rem;
+}
+
+/* Todos os containers principais */
+.container,
+.modulos,
+.cartesian-module,
+.plane-interactive-wrapper {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+img, iframe, canvas, video, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ============================================================
+   2. CABEÇALHO (ALTURA DINÂMICA)
+   ============================================================ */
+header#cabecalho {
+    /* Ajustamos o mínimo para 80px no mobile, mas mantemos o respiro no desktop */
+    margin-top: clamp(80px, 15vh, 400px);
+    margin-bottom: clamp(80px, 15vh, 400px);
+    padding: 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* Em telas grandes, ocupa 60% da altura. Em telas pequenas, reduz para 40% */
+    min-height: clamp(40vh, 60vh, 800px); 
+    width: 100%;
+}
+
+/* ============================================================
+   2. CABEÇALHO - BOTÃO COM DIMENSÕES FLUIDAS (VW)
+   ============================================================ */
+header#cabecalho button {
+    /* Margem superior proporcional à altura da tela */
+    margin-top: 5vh; 
+
+    /* Tamanho da fonte baseado na largura da tela (como uma %) */
+    /* 1.2vw funciona como 1.2% da largura da janela */
+    font-size: 1.2vw; 
+
+    /* Padding usando vw para que a largura/altura do botão mude com a tela */
+    padding: 1vw 2.5vw;
+
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    width: auto;
+    max-width: fit-content;
+    display: inline-block;
+    transition: transform 0.2s ease;
+
+}
+
+
+@media (max-width: 320px) {
+    header#cabecalho button {
+        font-size: 6vw; /* No celular, o botão ocupa uma proporção visual maior */
+        padding: 3vw 8vw;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    header#cabecalho button {
+        font-size: 5vw;
+        padding: 3vw 8vw;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+    header#cabecalho button {
+        font-size: 4.5vw; 
+        padding: 2vw 5vw;
+    }
+}
+
+/* Ajuste para telas menores (Tablets e Celulares) */
+/* Em telas pequenas, 1.2vw fica minúsculo, então aumentamos a "porcentagem" */
+@media (min-width: 600px) and (max-width: 1024px) {
+    header#cabecalho button {
+        font-size: 2.5vw; 
+        padding: 1.5vw 4vw;
+    }
+}
+
+
+
+/* ============================================================
+   3. TÍTULOS E TEXTOS
+   ============================================================ */
+.titulos {
+    font-size: clamp(22px, 6vw, 40px);
+    margin-top: clamp(40px, 10vh, 100px);
+    margin-bottom: clamp(30px, 8vh, 90px);
+    word-break: break-word;
+}
+
+.alinhamento-titulo {
+    margin-left: clamp(0px, -10vw, -200px);
+    margin-bottom: clamp(30px, 8vh, 90px);
+}
+
+.texto {
+    font-size: clamp(12px, 3.5vw, 18px);
+    margin-top: clamp(20px, 6vh, 50px);
+    margin-bottom: clamp(30px, 10vh, 100px);
+    line-height: 1.6;
+}
+
+.texto p {
+    margin-bottom: clamp(16px, 4vh, 40px);
+}
+
+/* ============================================================
+   4. MÓDULO DO PLANO CARTESIANO
+   ============================================================ */
+.cartesian-module {
+    border-radius: clamp(16px, 3vw, 32px);
+    padding: clamp(15px, 3vw, 30px) clamp(12px, 2vw, 25px);
+    margin: clamp(10px, 2vh, 20px) auto clamp(20px, 5vh, 30px);
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Título e subtítulo alinhados à esquerda */
+.interactive-title {
+    font-size: clamp(18px, 5vw, 28px);
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.interactive-sub {
+    margin-bottom: 25px;
+    font-size: clamp(11px, 3vw, 15px);
+    text-align: left;
+}
+
+/* Wrapper principal */
+.plane-interactive-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(15px, 4vw, 35px);
+}
+
+/* Canvas container - MAIOR */
+.canvas-container {
+    border-radius: 20px;
+    padding: clamp(8px, 1.5vw, 15px);
+    flex: 1;
+    min-width: min(100%, 320px);
+    max-width: min(100%, 650px);
+    display: flex;
+    justify-content: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 650px;
+    aspect-ratio: 1 / 1;
+    cursor: crosshair;
+    border-radius: 12px;
+}
+
+/* Painel de controle */
+.control-panel {
+    backdrop-filter: blur(6px);
+    border-radius: clamp(20px, 4vw, 28px);
+    padding: clamp(16px, 4vw, 28px) clamp(14px, 3vw, 28px);
+    flex: 1;
+    min-width: min(100%, 260px);
+    max-width: 100%;
+}
+
+/* ============================================================
+   5. INPUTS E BOTÕES
+   ============================================================ */
+.coord-inputs {
+    display: flex;
+    gap: clamp(10px, 3vw, 20px);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 1.5vw, 10px);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: clamp(12px, 3vw, 1.2rem);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-group label {
+    padding: clamp(4px, 1.5vw, 6px) clamp(10px, 3vw, 14px);
+    border-radius: 40px;
+    min-width: 45px;
+    text-align: center;
+}
+
+.input-group input {
+    font-size: clamp(12px, 3vw, 1.1rem);
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+    border-radius: 40px;
+    width: clamp(70px, 20vw, 100px);
+    text-align: center;
+    font-weight: 600;
+    outline: none;
+}
+
+.plot-btn, .clear-btn {
+    width: 100%;
+    padding: clamp(8px, 2vh, 12px) clamp(12px, 3vw, 20px);
+    font-size: clamp(12px, 3.5vw, 1.1rem);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+
+
+/* Telas muito pequenas: botões com texto quebrado */
+@media (max-width: 400px) {
+    .plot-btn, .clear-btn {
+        white-space: normal;
+        word-break: keep-all;
+    }
+}
+
+/* ============================================================
+   6. SELETORES (DROPDOWNS)
+   ============================================================ */
+.view-mode-select {
+    width: 100% !important;
+    min-width: unset !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 40px;
+    padding: clamp(8px, 2vw, 10px) clamp(30px, 8vw, 40px) clamp(8px, 2vw, 10px) clamp(12px, 3vw, 20px) !important;
+    border-radius: 40px;
+    font-size: clamp(11px, 3vw, 0.95rem);
+    font-weight: 600;
+    outline: none;
+    white-space: normal;
+    word-break: break-word;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-position: calc(100% - 10px) center !important;
+    background-size: clamp(14px, 3vw, 18px) !important;
+}
+
+.point-select {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 38px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(30px, 8vw, 40px) clamp(6px, 1.5vw, 8px) clamp(10px, 2.5vw, 15px) !important;
+    border-radius: 30px;
+    font-size: clamp(11px, 2.8vw, 0.9rem);
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: calc(100% - 10px) center;
+    background-size: 16px;
+}
+
+/* ============================================================
+   7. RESULTADOS E DISPLAYS
+   ============================================================ */
+.coord-result {
+    margin: 18px 0;
+    text-align: center;
+    border-radius: 20px;
+    padding: clamp(6px, 1.5vh, 10px);
+}
+
+.coord-result p {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: clamp(10px, 3vw, 12pt);
+    opacity: 0.9;
+}
+
+#coordDisplay {
+    font-size: clamp(16px, 5vw, 1.4rem);
+    font-weight: bold;
+    padding: 4px 5px;
+}
+
+.distance-result {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: clamp(8px, 2vh, 12px);
+    border-radius: 15px;
+}
+
+.distance-result p {
+    margin: 8px 0;
+    font-weight: bold;
+    font-size: clamp(11px, 3vw, 0.9rem);
+}
+
+#distanceValue, #midpointValue {
+    font-weight: bold;
+    font-size: clamp(13px, 4vw, 1.1rem);
+}
+
+.hint {
+    font-size: clamp(9px, 2.5vw, 0.75rem);
+    text-align: center;
+    margin-top: 12px;
+    opacity: 0.7;
+}
+
+/* ============================================================
+   8. MÓDULO DO TRIÂNGULO (BARICENTRO)
+   ============================================================ */
+.point-input-group {
+    margin: clamp(12px, 3vh, 20px) auto;
+}
+
+.point-input-group h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    font-size: clamp(13px, 3.5vw, 1rem);
+    text-align: center;
+}
+
+.point-input-group .input-group {
+    margin-bottom: 4px;
+    justify-content: center;
+}
+
+.point-input-group .input-group input {
+    width: clamp(55px, 15vw, 80px);
+    font-size: clamp(10px, 2.5vw, 0.85rem);
+    padding: 4px 8px;
+}
+
+#triangleInputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 15px);
+}
+
+#triangleResult {
+    font-size: clamp(11px, 3vw, 0.9rem);
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* ============================================================
+   9. CAIXAS DE FÓRMULAS - UMA ABAIXO DA OUTRA (SEM GRID)
+   ============================================================ */
+#formula-box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: -25px;
+    width: 100%;
+}
+
+.boxes {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 80%;
+    max-width: 100%;
+    border-radius: clamp(12px, 2vw, 20px);
+    transition: 0.4s ease;
+}
+
+/* Em telas menores, as caixas ocupam mais largura */
+@media (max-width: 768px) {
+    .boxes {
+        width: 95%;
+    }
+}
+
+.boxes:hover {
+    scale: 1.02;
+}
+
+.titlebox {
+    margin-top: clamp(16px, 4vh, 40px);
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    font-size: clamp(14px, 4vw, 18px);
+    margin-left: clamp(15px, 4vw, 60px);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.textbox {
+    display: flex;
+    justify-content: justify;
+    text-align: justify;
+    margin-left: clamp(15px, 4vw, 60px);
+    margin-top: 20px;
+    margin-right: clamp(15px, 4vw, 60px);
+    font-size: clamp(11px, 3vw, 13px);
+    white-space: wrap;
+    width: auto;
+    line-height: 1.55;
+    font-weight: 400;
+}
+
+.formulas-box {
+    padding: clamp(15px, 3vh, 30px) clamp(10px, 2vw, 20px);
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: clamp(10px, 3.5vw, 14pt) !important;
+    overflow-x: auto;
+    text-align: center;
+    overflow-y: hidden !important;
+}
+
+/* Fórmulas KaTeX responsivas */
+.formulas-box .katex,
+.formulas-box .katex-display {
+    font-size: 1.5em !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+}
+
+
+@media (max-width: 280px) {
+    .formulas-box .katex {
+        font-size: 1.5em;
+        overflow-x: hidden !important;
+        overflow-y: hidden;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
+    } 
+
+    #distancia-formula {
+        font-size: 0.60em !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 383px) {
+    .formulas-box .katex {
+        font-size: 1.2em !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
+    } 
+
+    #distancia-formula {
+        font-size: 0.75em !important;
+    }
+}
+
+.katex-display > .katex {
+    white-space: normal;
+    text-align: center;
+}
+
+.katex-display .katex {
+    font-size: clamp(10px, 3vw, 1.1em) !important;
+}
+
+/* Fórmulas específicas de pontos e baricentro */
+#pontos .formulas-box,
+#baricentro .formulas-box {
+    font-size: clamp(7px, 3.2vw, 14pt) !important;
+}
+
+.legendbox {
+    margin-bottom: 40px;
+    margin-right: 20px;
+    gap: clamp(6px, 2vw, 15px);
+    font-size: clamp(10px, 2.8vw, 14px);
+    text-align: justify;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: clamp(15px, 4vw, 60px);
+}
+
+/* ============================================================
+   10. RODAPÉ
+   ============================================================ */
+.main-footer {
+    padding: 80px 20px 40px;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 60px;
+}
+
+.gradient-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.footer-col p,
+.textorodape {
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.textorodape {
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-top: 15px;
+    text-align: justify;
+    word-spacing: -1px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    transition: 0.3s;
+}
+
+
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.dev-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dev-card {
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dev-card:hover {
+    transform: scale(1.05);
+}
+
+.dev-card i {
+    font-size: 1.2rem;
+}
+
+.dev-card span {
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 30px;
+}
+
+.bottom-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.bottom-content p {
+    font-size: 0.85rem;
+}
+
+.repo-button {
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.repo-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Rodapé responsivo (mantendo o estilo original) */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .dev-cards {
+        align-items: center;
+    }
+    
+    .bottom-content {
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .textorodape {
+        text-align: center;
+    }
+}
+
+/* ============================================================
+   11. MENU
+   ============================================================ */
+.menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    transition: background-color 0.8s ease;
+}
+
+.logo {
+    width: clamp(60px, 15vw, 100px);
+    height: clamp(30px, 8vw, 50px);
+}
+
+.menu a {
+    font-size: clamp(14px, 4vw, 20px);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+ul.menu-itens {
+    display: flex;
+    gap: clamp(12px, 3vw, 30px);
+    margin: 0;
+    padding: 0;
+    padding-right: clamp(20px, 5vw, 60px);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: clamp(28px, 7vw, 40px);
+    padding: 0 10px;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+/* Menu responsivo */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    ul.menu-itens {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding: 10px 0 5px 0;
+        margin-top: 10px;
+    }
+
+    ul.menu-itens.aberto {
+        display: flex;
+    }
+
+    .menu-itens li {
+        width: 100%;
+        padding: 10px 20px;
+    }
+
+    .menu-itens li:last-child {
+        border-bottom: none;
+    }
+
+    .menu a {
+        font-size: 17px !important;
+    }
+}
+
+/* ============================================================
+   12. BREAKPOINTS ESPECÍFICOS
+   ============================================================ */
+
+/* Telas muito pequenas (320px - 480px) */
+@media (max-width: 480px) {
+    .coord-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .input-group {
+        justify-content: space-between;
+    }
+    
+    .input-group input {
+        width: 60%;
+    }
+    
+    .plane-interactive-wrapper {
+        gap: 20px;
+    }
+    
+    .control-panel {
+        padding: 14px;
+    }
+    
+    .plot-btn, .clear-btn {
+        width: 100%;
+    }
+    
+    .point-input-group .input-group {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .point-input-group .input-group input {
+        width: 60%;
+    }
+    
+    .legendbox .separador {
+        display: none;
+    }
+    
+    .legendbox {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    header#cabecalho h1 {
+        font-size: 24pt;
+    }
+    
+    header#cabecalho h2 {
+        font-size: 11pt;
+    }
+    
+    .titulos {
+        font-size: 20pt;
+    }
+    
+    .texto {
+        font-size: 12pt;
+    }
+
+}
+
+/* Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .plane-interactive-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-panel {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+
+/* Orientação paisagem em celulares */
+@media (max-width: 900px) and (orientation: landscape) {
+    header#cabecalho {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    header#cabecalho h1 {
+        font-size: 24px;
+    }
+    
+    header#cabecalho h2 {
+        font-size: 12px;
+    }
+    
+    .cartesian-module {
+        padding: 15px;
+    }
+    
+    .plane-interactive-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .canvas-container {
+        max-width: 45%;
+    }
+    
+    .control-panel {
+        max-width: 50%;
+    }
+    
+    .titulos {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+    
+    .texto {
+        font-size: 11px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Telas grandes (acima de 1400px) */
+@media (min-width: 1400px) {
+    .container,
+    .modulos {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cartesian-module {
+        max-width: 1300px;
+    }
+    
+    .plane-interactive-wrapper {
+        gap: 50px;
+    }
+}
+

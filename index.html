@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcNexus</title>
+
+    <!-- ========== FAVICON ========== -->
+    <link rel="shortcut icon" href="assets/logo.ico" type="image/x-icon">
+
+    <!-- ========== CSS ========== -->
+    <link rel="stylesheet" href="css/style.css">            <!-- Estilo geral -->
+    <link rel="stylesheet" href="css/plano-cartesiano.css"> <!-- Gráficos -->
+    <link rel="stylesheet" href="css/menu.css">             <!-- Menu -->
+    <link rel="stylesheet" href="css/footer.css">           <!-- Rodapé -->
+    <link rel="stylesheet" href="css/responsive.css">       <!-- Responsive ➡️ responsável pela adaptação do site para diferentes tipos de tela-->
+    <link rel="stylesheet" href="css/scrollbar.css">        <!-- Scrollbar ➡️ responsável pela estilização do scroll lateral -->
+
+    <!-- ========== JS ========== -->
+    <script src="js/script.js"></script>    <!-- Gráficos -->
+    <script src="js/menu.js"></script>      <!-- Menu -->
+
+
+    <!-- ========== FÓRMULAS-KATEX ========== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body);"></script>
+
+</head>
+<body>
+
+
+    <!-- Mater o rodapé embaixo -->
+    <div id="empurra-rodape">
+
+<!---------------------------------------------------------->
+
+    <!-- ========== MENU FIXO ========== -->
+    <nav class="menu" id="menu-fixo">
+        <div class="logo"></div>
+
+        <button class="hamburger" id="hamburger-fixo" aria-label="Abrir menu">&#9776;</button>
+        
+        <ul class="menu-itens" id="itens-fixo">
+            <li><a href="#modulo1">MODULE 1</a></li>
+            <li><a href="#modulo2">MODULE 2</a></li>
+            <li><a href="#modulo3">MODULE 3</a></li>
+            <li><a href="#modulo4">MODULE 4</a></li>
+            <li><a href="#formulas-boxes">FORMS</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== MENU QUE DESCE ========== -->
+    <nav class="menu" id="menu-show">
+        <div class="logo"></div>
+
+        <button class="hamburger" id="hamburger-show" aria-label="Abrir menu">&#9776;</button>
+        
+        <ul class="menu-itens" id="itens-show">
+            <li><a href="#slide1" style="font-size: 22px;">HOME</a></li>
+            <li><a href="#modulo1">MODULE 1</a></li>
+            <li><a href="#modulo2">MODULE 2</a></li>
+            <li><a href="#modulo3">MODULE 3</a></li>
+            <li><a href="#modulo4">MODULE 4</a></li>
+            <li><a href="#formulas-boxes">FORMS</a></li>
+        </ul>
+    </nav>
+
+<!---------------------------------------------------------->
+
+    <!-- ========== CABEÇALHO ========== -->
+    <section class="slide slide-um" id="slide1">
+        <header id="cabecalho" class="container">
+
+            <h1>Geometria Analítica</h1>
+
+            <h2>Explore a beleza e a complexidade da geometria analítica através do CalcNexus.</h2>
+
+            <a href="#modulo1">
+                <button onclick=""><p class="textobotao">DESCUBRA</p></button>
+            </a>
+
+        </header>
+    </section>
+
+<!---------------------------------------------------------->
+
+    <!-- ========== MÓDULO 1 ========== -->
+    <section class="slide slide-dois" id="slide2">
+        <div id="modulo1" class="modulos container">
+
+            <!-- Título do módulo -->
+            <h2 class="titulos">A peça mais importante: O Ponto.</h2>
+
+
+            <!-- Texto Explicativo -->
+            <div id="textomod1" class="texto">
+
+                <p>Antes de desenhar retas, precisamos entender o conceito de ponto. <strong>Um ponto representa uma posição exata no plano ou no espaço, sem ter tamanho, área ou volume.</strong> Um ponto no plano cartesiano é representado por um <strong>par ordenado (x, y)</strong>, onde x é a coordenada horizontal e y é a coordenada vertical.</p>
+
+                <p>A distância entre dois pontos em um plano cartesiano<strong> é obtida com base no teorema de Pitágoras. Imagine que os pontos formam os vértices de um triângulo retângulo:</strong> a diferença entre as coordenadas horizontais representa um cateto, e a diferença entre as coordenadas verticais representa o outro cateto. A distância entre os dois pontos é o comprimento da hipotenusa desse triângulo.</p>
+
+                <p>Já o ponto médio é simplesmente a posição que fica exatamente no meio do segmento que une os dois pontos. <strong>Para encontrá-lo, calcula-se a média aritmética das coordenadas de cada eixo:</strong> ou seja, a coordenada horizontal do ponto médio é a média das horizontais dos pontos extremos, e a coordenada vertical é a média das verticais. Assim, ele representa o "equilíbrio" entre os dois pontos.</p>
+
+            </div>   
+
+            <!-- Plano Cartesiano -->
+            <div class="cartesian-module">
+                
+                <!-- Título e Subtítulo -->
+                <h3 class="interactive-title">Plano Cartesiano Interativo</h3>
+                <p class="interactive-sub">Insira as coordenadas e visualize o ponto no gráfico abaixo:</p>
+
+
+                <!-- Área onde fica o gráfico e o painel de controle -->
+                <div class="plane-interactive-wrapper">
+
+                    <!-- Canvas do plano cartesiano -->
+                    <div class="canvas-container">
+                        <canvas id="cartesianCanvas" width="550" height="550"></canvas>
+                    </div>
+
+                    <!-- Painel de controle -->
+                    <div class="control-panel">
+                        <div class="distance-module">
+                            
+                            <!-- Opções -->
+                            <select id="viewMode" class="view-mode-select">
+
+                                <option value="points">APENAS PONTOS</option>
+                                <option value="distance">DISTÂNCIA E PONTO MÉDIO</option>
+
+                            </select>
+                            
+                            <!-- DISTÂNCIA E PONTO MÉDIO -->
+                            <div id="pointSelectors" style="display: none;">
+
+                                <!-- PONTO A -->
+                                <div class="point-selector-group">
+                                    
+                                    <label>PONTO A:</label>
+
+                                    <select id="pointASelect" class="point-select">
+                                        <option value="">Selecione um ponto</option>
+                                    </select>
+
+                                </div>
+                                
+                                <!-- PONTO B -->
+                                <div class="point-selector-group">
+                                    <label>PONTO B:</label>
+                                    <select id="pointBSelect" class="point-select">
+                                        <option value="">Selecione um ponto</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Resultados -->
+                                <div id="distanceResult" class="distance-result">
+
+                                    <p>DISTÂNCIA: <spam id="distanceValue">---</spam></p>
+                                    <p>PONTO MÉDIO: <spam id="midpointValue">---</spam></p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Inputs -->
+                        <div class="coord-inputs">
+
+                            <!-- Input X-->
+                            <div class="input-group">
+
+                                <label>X</label>
+                                <!-- Valor inicial -->
+                                <input type="number" id="xCoord" value="3" step="0.5" placeholder="x">
+
+                            </div>
+
+                            <!-- Input Y-->
+                            <div class="input-group">
+
+                                <label>Y</label>
+                                <!-- Valor inicial -->
+                                <input type="number" id="yCoord" value="2" step="0.5" placeholder="y">
+
+                            </div>
+
+                        </div>
+
+                        <!-- Botão de PLOTAR PONTO -->
+                        <button id="plotPointBtn" class="plot-btn">PLOTAR PONTO</button>
+
+                        <!-- Área de PONTO ATUAL -->
+                        <div class="coord-result">
+
+                            <p>PONTO ATUAL:</p>
+                            <spam id="coordDisplay">(3.00, 2.00)</spam>
+
+                        </div>
+
+                        <!-- Botão de LIMPAR PONTOS -->
+                        <button id="clearCanvasBtn" class="clear-btn">🗑️ LIMPAR PONTOS</button>
+
+                        <!-- Aviso de clicar no gráfico -->
+                        <p class="hint" style="font-size: 10pt;">Clique diretamente no gráfico para marcar um ponto!</p>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Texto abaixo do gráfico -->
+            <div id="textoposgraf" class="texto">
+
+                <p>No cotidiano, esses conceitos aparecem em várias situações práticas. Por exemplo, ao usar um GPS ou aplicativo de mapas, sua localização é representada por coordenadas, semelhantes a um ponto no plano cartesiano. A distância entre dois pontos pode ser aplicada ao calcular o trajeto mais curto entre dois locais, como ir de casa até a escola ou trabalho. Já o ponto médio é útil em situações como marcar um local de encontro “no meio do caminho” entre duas pessoas, garantindo que ambos percorram distâncias iguais. Além disso, esses conceitos também são usados em áreas como jogos digitais, design gráfico e até na construção civil, onde é necessário medir distâncias e encontrar posições exatas com precisão.</p>
+                
+            </div>
+
+
+        </div>
+        
+    </section>
+
+<!---------------------------------------------------------->
+
+    <!-- ========== MÓDULO 2 ========== -->
+    <section class="slide slide-tres" id="slide3">
+        <div id="modulo2" class="modulos container">
+
+            <!-- Título -->
+            <h2 class="titulos">A ponte entre dois pontos: A Reta.</h2>
+
+            <!-- Texto -->
+            <div id="textmod2" class="texto">
+
+                <p>Antes de trabalhar com funções e análises mais avançadas, é importante entender o conceito de reta. A reta pode ser vista como o caminho que liga pontos no plano, formando uma trajetória contínua e infinita em duas direções. No plano cartesiano, ela representa como duas grandezas se relacionam e, dependendo da sua inclinação, conseguimos perceber se uma quantidade aumenta, diminui ou permanece constante em relação à outra.</p>
+
+                <p>A inclinação de uma reta indica o quanto ela “sobe” ou “desce” à medida que avançamos horizontalmente. Imagine dois pontos marcados no plano: ao observar a variação horizontal e vertical entre eles, entendemos o comportamento da reta — se sobe da esquerda para a direita, há crescimento; se desce, há queda. Esse conceito aparece, por exemplo, na construção de uma rampa para cadeirantes, em que a inclinação precisa ser controlada para garantir segurança e acessibilidade.</p>
+
+                <p>Além disso, também é importante observar onde a reta cruza o eixo vertical, pois esse ponto representa o valor inicial da relação, ou seja, onde tudo começa antes de qualquer variação. Esse tipo de representação é muito utilizado no dia a dia, especialmente em análises financeiras, onde retas ajudam a visualizar tendências e fazer previsões de lucros e gastos ao longo do tempo, no que chamamos de projeção linear. Por fim, existem diferentes formas de representar uma reta, cada uma útil em contextos específicos, seja para facilitar a visualização ou para permitir cálculos mais completos em áreas como engenharia e física.</p>
+
+            </div>
+
+            <!-- Plano Cartesiano -->
+            <div class="cartesian-module" id="modulo-geometria">
+
+                <!-- Título e Subtítulo -->
+                <h3 class="interactive-title">Geometria Analítica: Retas</h3>
+                <p class="interactive-sub">Escolha o formato, insira os dados e visualize a reta:</p>
+                
+                
+                <!-- Área onde fica o gráfico e o painel de controle -->
+                <div class="plane-interactive-wrapper">
+
+                    <!-- Canvas -->
+                    <div class="canvas-container">
+                        <canvas id="cartesianCanvas2" width="550" height="550"></canvas>
+                    </div>
+                    
+                    <!-- Painel de controle-->
+                    <div class="control-panel">
+
+                        <div class="input-group" style="margin-bottom: 20px;">
+                            <div class="distance-module">
+
+                                <!-- Options -->
+                                <select id="calcMode" class="view-mode-select">
+                                    
+                                    <!-- Coeficiente angular -->
+                                    <option value="angular">COEFICIENTE ANGULAR</option>
+
+                                    <!-- Equação reduzida -->
+                                    <option value="reduzida">EQUAÇÃO REDUZIDA</option>
+
+                                    <!-- Equação geral-->
+                                    <option value="geral">EQUAÇÃO GERAL</option>
+
+                                </select>
+                                
+                            </div>
+
+                        </div>
+
+                        <!-- Área onde está todos os inputs -->
+                        <div id="dynamicInputs" class="coord-inputs"></div>
+
+
+                        <!-- Botão de PLOTAR RETA -->
+                        <button id="plotBtn2" class="plot-btn">PLOTAR RETA</button>
+                        
+
+                        <!-- Área de EQUAÇÕES RESULTANTES-->
+                        <div class="distance-result" style="text-align: left;">
+
+                            <p id="plano2">EQUAÇÕES RESULTANTES:</p>
+
+                            <div id="resultDisplay">
+                                Aguardando dados...
+                            </div>
+
+                        </div>
+                        
+                        <!-- Botão de LIMPAR GRÁFICO -->
+                        <button id="clearBtn2" class="clear-btn">🗑️ LIMPAR GRÁFICO</button>
+
+                    </div>
+
+                </div>
+        
+            </div>
+
+            <!-- Texto abaixo do gráfico -->
+            <div id="textoposgraf" class="texto">
+
+                <p>No dia a dia, o conceito de reta aparece em diversas situações práticas. Por exemplo, ao analisar o preço de uma corrida por aplicativo, podemos relacionar a distância percorrida com o valor cobrado, formando uma reta em que o ponto inicial representa a taxa base e a inclinação indica o custo por quilômetro. Em uma conta de energia ou água, o valor total também pode crescer de forma aproximadamente linear conforme o consumo aumenta. Outro exemplo está no planejamento de viagens: ao manter uma velocidade constante, a distância percorrida ao longo do tempo forma uma reta, permitindo prever horários de chegada. Além disso, em atividades como acompanhar o crescimento de seguidores em redes sociais ou a evolução de notas ao longo do tempo, gráficos lineares ajudam a visualizar tendências, identificar aumentos ou quedas e tomar decisões com mais clareza.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!---------------------------------------------------------->
+    
+    <!-- ========== MÓDULO 3 ========== -->
+    <section class="slide slide-quatro" id="slide4">
+        <div id="modulo3" class="modulos container">
+
+            <!-- Título -->
+            <h2 class="titulos">As curvas: Cônicas</h2>
+
+            <!-- Texto -->
+            <div id="textmod3" class="texto">
+
+                <p>Antes de estudar formas mais complexas no plano cartesiano, é importante entender o conceito de cônicas. As cônicas são curvas obtidas a partir da interseção de um plano com um cone, dando origem a diferentes figuras com características próprias.</p>
+
+                <p>No plano cartesiano, essas curvas representam diferentes tipos de comportamento geométrico. Dependendo de como a figura se apresenta, conseguimos identificar formas como circunferências, parábolas, elipses e hipérboles, cada uma com propriedades específicas e aplicações distintas.</p>
+
+                <p>A circunferência é o conjunto de todos os pontos que mantêm a mesma distância (o raio) de um ponto central fixo.</p>
+
+                <p>A elipse pode ser vista como uma circunferência "alongada". Ela possui dois pontos internos chamados focos, e a soma das distâncias de qualquer ponto da curva até esses dois focos é sempre constante.</p>
+
+                <p>A parábola é uma curva aberta que possui uma propriedade reflexiva única: qualquer sinal (luz ou som) que atinge sua superfície paralelamente ao seu eixo é direcionado para um único ponto, o foco.</p>
+
+
+            </div>
+
+
+            <!-- Plano Cartesiano -->
+            <div class="cartesian-module" id="modulo-conicas">
+
+                <!-- Título e Subtítulo -->
+                <h3 class="interactive-title">Geometria Analítica: Cônicas</h3>
+                <p class="interactive-sub">Escolha o tipo de cônica, insira os parâmetros e visualize o gráfico:</p>
+                
+
+                <!-- Área onde fica o gráfico e o painel de controle -->
+                <div class="plane-interactive-wrapper">
+
+                    <!-- Canvas-->
+                    <div class="canvas-container">
+                        <canvas id="cartesianCanvas3" width="550" height="550"></canvas>
+                    </div>
+                    
+                    <!-- Painel de Controle -->
+                    <div class="control-panel">
+
+                        <!-- Inputs -->
+                        <div class="input-group" style="margin-bottom: 20px;">
+
+                            <!-- Options -->
+                            <div class="distance-module">
+
+                                <select id="graphType" class="view-mode-select">
+
+                                    <!-- Circuferência -->
+                                    <option value="circle">CIRCUNFERÊNCIA</option>
+
+                                    <!-- Elipse-->
+                                    <option value="ellipse">ELIPSE</option>
+
+                                    <!-- Parábola-->
+                                    <option value="parabola">PARÁBOLA</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        
+                        <!-- Layout dos inputs -->
+                        <div id="graphInputs" class="coord-inputs layout-circle"></div>
+
+
+                        <!-- Botão de PLOTAR GRÁFICO -->
+                        <button id="plotGraphBtn" class="plot-btn">PLOTAR GRÁFICO</button>
+                        
+                        <!-- Área de FÓRMULA RESULTANTE -->
+                        <div class="distance-result" style="text-align: left;">
+
+                            <p id="plano3">FÓRMULA RESULTANTE:</p>
+
+                            <!-- Mensagem que aparce quando não tem nada -->
+                            <div id="graphResult">Aguardando parâmetros...</div>
+
+                        </div>
+                        
+                        <!-- Botão de LIMPAR GRÁFICO -->
+                        <button id="clearGraphBtn" class="clear-btn">🗑️ LIMPAR GRÁFICO</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Texto abaixo do gráfico -->
+            <div id="textoposgraf2" class="texto">
+
+                <p>À primeira vista, essas fórmulas podem parecer apenas abstrações teóricas. No entanto, elas são as ferramentas invisíveis que moldam o mundo ao nosso redor. Essencial para definir áreas de cobertura, como o sinal de Wi-Fi ou o alcance de radares, onde a intensidade se propaga uniformemente em todas as direções a partir de uma origem. É a forma fundamental da astronomia, utilizada para representar a órbita dos planetas ao redor do Sol, que ocupa um dos focos dessa elipse. Utilizada em antenas de TV e faróis de carros, devido à sua capacidade de concentrar sinais. Na física, também descreve a trajetória perfeita de projéteis e lançamentos sob a influência da gravidade.</p>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!---------------------------------------------------------->
+
+    <!-- ========== MÓDULO 4 ========== -->
+    <section class="slide slide-cinco" id="slide5">
+        <div id="modulo4"  class="modulos container">
+
+            <!-- Título -->
+            <h2  class="titulos">Baricentro</h2>
+
+            <!-- Texto -->
+            <div id="textmod4" class="texto">
+
+                <p>O baricentro de um triângulo é o ponto onde as três medianas do triângulo se encontram. Ele representa o centro de massa do triângulo, sendo o ponto de equilíbrio onde o triângulo poderia ser balanceado perfeitamente.</p>
+
+                <p>O baricentro é usado em engenharia para determinar o centro de gravidade de estruturas triangulares, em computação gráfica para transformações de objetos e na física para análise de sistemas de forças.</p>
+
+            </div>
+
+
+
+            <!-- Plano Cartesiano -->
+            <div class="cartesian-module" id="modulo-baricentro">
+
+                <!-- Título e Subtítulo -->
+                <h3 class="interactive-title">Baricentro de Triângulos</h3>
+                <p class="interactive-sub">Escolha três pontos para formar um triângulo e calcule o baricentro:</p>
+                
+                <!-- Área onde fica o gráfico e painel de controle -->
+                <div class="plane-interactive-wrapper">
+
+                    <!-- Canvas -->
+                    <div class="canvas-container">
+                        <canvas id="cartesianCanvas4" width="550" height="550"></canvas>
+                    </div>
+                    
+
+                    <!-- Painel de controle -->
+                    <div class="control-panel">
+                        
+                        <!-- Options-->
+                        <div class="distance-module">
+                            
+                            <h3 id="triangleTitle" class="view-mode-select"
+                                style="display: flex; align-items: center; --background-image: none; --cursor: default">
+
+                                TRIÂNGULO
+                            </h3>
+
+                        </div>
+
+                        <!-- Inputs -->
+                        <div id="triangleInputs" class="coord-inputs">
+
+                            <!-- PONTO A -->
+                            <div class="point-input-group">
+                                <!-- Título -->
+                                <h4>Ponto A</h4>
+
+                                <!-- Input X-->
+                                <div class="input-group">
+
+                                    <label>X</label>
+                                    <input class="coord-baricentro" type="number" id="xCoordA" value="0" step="0.5" placeholder="x">
+                                    
+                                </div>
+
+                                <!-- Input Y-->
+                                <div class="input-group">
+
+                                    <label>Y</label>
+                                    <input class="coord-baricentro" type="number" id="yCoordA" value="0" step="0.5" placeholder="y">
+
+                                </div>
+                            </div>
+                            
+                            <!-- PONTO B-->
+                            <div class="point-input-group">
+
+                                <!-- Título -->
+                                <h4>Ponto B</h4>
+
+                                <!-- Input X -->
+                                <div class="input-group">
+
+                                    <label>X</label>
+                                    <input class="coord-baricentro" type="number" id="xCoordB" value="4" step="0.5" placeholder="x">
+
+                                </div>
+
+                                <!-- Input Y-->
+                                <div class="input-group">
+
+                                    <label>Y</label>
+                                    <input class="coord-baricentro" type="number" id="yCoordB" value="0" step="0.5" placeholder="y">
+
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- PONTO C -->
+                            <div class="point-input-group">
+
+                                <!-- Título -->
+                                <h4>Ponto C</h4>
+
+                                <!-- Input X -->
+                                <div class="input-group">
+
+                                    <label>X</label>
+                                    <input class="coord-baricentro" type="number" id="xCoordC" value="2" step="0.5" placeholder="x">
+
+                                </div>
+
+                                <!-- Input Y -->
+                                <div class="input-group">
+
+                                    <label>Y</label>
+                                    <input class="coord-baricentro" type="number" id="yCoordC" value="3" step="0.5" placeholder="y">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Botão de PLOTAR TRIÂNGULO -->
+                        <button id="plotTriangleBtn" class="plot-btn">PLOTAR TRIÂNGULO</button>
+                        
+                        
+                        <!-- Resultados-->
+                        <div class="distance-result" style="text-align: left;">
+
+                            <p id="plano4">BARICENTRO CALCULADO:</p>
+
+                            <!-- Aparece enquanto não tem nada -->
+                            <div id="triangleResult">Aguardando pontos...</div>
+
+                        </div>
+                        
+                        <!-- Botão de LIMPAR GRÁFICO -->
+                        <button id="clearTriangleBtn" class="clear-btn">🗑️ LIMPAR GRÁFICO</button>
+
+                        <!-- Botão de RESETAR PONTOS ➡️ volta para os valores iniciais -->
+                        <button id="resetPointsBtn" class="clear-btn">🔄 RESETAR PONTOS</button>
+
+                        <!-- Dica de que é possível arrastar os pontos no gráfico -->
+                        <p class="hint" style="font-size: 11.7pt;">Arraste os pontos do triângulo para ajustar os pontos!</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Texto abaixo do gráfico -->
+            <div id="textoposgraf3" class="texto">
+
+                <p>Fisicamente, o baricentro é o centro de massa de uma placa triangular homogênea. Isso significa que, se você recortasse o triângulo e tentasse equilibrá-lo sobre a ponta de um lápis, o único lugar onde ele ficaria perfeitamente parado, sem cair para nenhum dos lados, seria exatamente no baricentro.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+        
+<!---------------------------------------------------------->
+
+    <!-- ========== FÓRMULAS ==========  -->
+    <section class="slide slide-seis" id="slide6">
+        <div id="formulas-boxes" class="container">
+
+            <!-- Título -->
+            <h2 class="titulos">Fórmulas</h2>
+
+            <!-- Caixas -->
+            <div id="formula-box">
+
+                <!-- ========== Distância ========== -->
+                <div id="distancia" class="boxes">
+
+                    <div class="conteudo">
+                        <div class="progressbar">
+
+                            <!-- Título -->
+                            <h2 class="titlebox">Pontos</h2>
+
+                            <!-- Texto -->
+
+                            <div id="txt1" class="textbox">
+
+                                <p>O ponto é o elemento mais básico da geometria: ele não tem dimensão, largura ou altura; serve apenas para indicar uma posição exata no espaço. No plano cartesiano, ele é definido pelo encontro de duas coordenadas, <strong>x</strong> (horizontal) e <strong>y</strong> (vertical), formando o que chamamos de par ordenado:</p>
+
+                            </div>
+
+                            <p class="formulas-box formulas">\(A = (x, y)\)</p>
+
+                            <div class="legendbox">
+
+                                <p><strong>a</strong> = ponto</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>x</strong> = eixo das abcissas</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>y</strong> = eixo das ordenadas</p>
+
+                            </div>
+
+                            <div class="textbox">
+
+                                <p>A fórmula da distância entre dois pontos no plano cartesiano é derivada do teorema de Pitágoras. Considerando dois pontos A(x₁, y₁) e B(x₂, y₂), a distância D entre eles é calculada usando as diferenças das coordenadas horizontais e verticais para formar um triângulo retângulo, onde a hipotenusa representa a distância entre os pontos. A fórmula é expressa como:</p>
+
+                            </div>
+
+
+                            <!-- Fórmula -->
+                            <p id="distancia-formula" class="formulas-box formulas">\(d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\)</p>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <p><strong>d</strong> = distância</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>( x₁, y₁ )</strong> = 1º ponto</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>( x₂, y₂ )</strong> = 2º ponto</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ========== Retas ========== -->
+                <div id="retas" class="boxes">
+
+                    <div class="conteudo">
+                        <div class="progressbar">
+
+                            <!-- Título -->
+                            <h2 class="titlebox">Retas</h2>
+
+                            <!-- Texto -->
+                            <div class="textbox">
+
+                                <p>Essa é a fórmula do coeficiente angular <strong>(m)</strong>, que mede a inclinação de uma reta em relação ao eixo horizontal. Ela representa a "taxa de variação", calculando o quanto a coordenada <strong>y</strong> sobe ou desce para cada unidade que o <strong>x</strong> avança. Basicamente, ela define se a ladeira é íngreme, plana ou descendente.</p>
+
+                            </div>
+
+                            <!-- Fórmula -->
+                            <span class="formulas-box formulas">\(m = \frac{y_2 - y_1}{x_2 - x_1}\)</span>
+
+                            <div class="legendbox">
+
+                                <span><strong>m</strong> = coeficiente angular</span>
+
+                                <span class="separador"> | </span>
+
+                                <span><strong>(y2 - y1)</strong> = varição vertical</span>
+
+                                <span class="separador">|</span>
+
+                                <span><strong>(x2 - x1)</strong> = variação horizontal</span>
+
+                            </div>
+
+                            <div class="textbox">
+
+                                <p>Essa é a equação reduzida da reta, que descreve uma linha infinita no plano cartesiano. Ela mostra a relação direta entre <strong>x</strong> e <strong>y</strong>, onde o valor de <strong>y</strong> depende da inclinação da reta e do ponto onde ela cruza o eixo vertical.</p>
+
+                            </div>
+
+                            <span class="formulas-box formulas">\(y = mx + n\)</span>
+
+                            <div class="legendbox">
+
+                                <span><strong>m</strong> = coeficiente angular</span>
+
+                                <span class="separador"> | </span>
+
+                                <span><strong>n</strong> = coeficiente linear</span>
+
+                                <span class="separador">|</span>
+
+                                <span><strong>x, y</strong> = coordenadas dos infinitos</span>
+
+                            </div>
+
+                            <div class="textbox">
+
+                                <p>Esta é a equação fundamental da reta. Ela é usada para encontrar a equação de uma reta quando você conhece apenas um ponto específico por onde ela passa e a sua inclinação. Ela nasce da própria definição de coeficiente angular, apenas rearranjada para facilitar o cálculo.</p>
+
+                            </div>
+
+                            <span class="formulas-box formulas">\(y - y_0 = m(x - x_0)\)</span>
+
+                            <div class="legendbox">
+
+                                <span><strong>m</strong> = coeficiente angular</span>
+
+                                <span class="separador"> | </span>
+
+                                <span><strong>(x0, y0)</strong> = cordenadas de um ponto conhecido da reta</span>
+
+                            </div>
+
+                            <div class="textbox">
+
+                                <p>Esta é a equação geral da reta, uma forma universal de representar qualquer reta no plano cartesiano, inclusive as verticais. Diferente da forma reduzida, ela reúne todos os termos de um lado só da igualdade, igualando-os a zero, o que facilita cálculos de distância entre ponto e reta e o estudo de posições relativas.</p>
+
+                            </div>
+
+                            <span class="formulas-box formulas">\(ax + by + c = 0\)</span>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <span><strong>a, b, c</strong> = coeficientesque definem  posição e orientação da reta</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========== Cônicas ========== -->
+                <div id="conicas" class="boxes">
+
+                    <div class="conteudo">
+                        <div class="progressbar">
+
+                            <!-- Título -->
+                            <h2 class="titlebox">Cônicas</h2>
+
+                            <!-- Texto -->
+                            <div class="textbox">
+
+                                <p>Essa é a equação reduzida da circunferência, derivada diretamente do Teorema de Pitágoras e da fórmula da distância entre dois pontos. Ela define que qualquer ponto <strong>(x, y)</strong> sobre a linha do círculo mantém uma distância constante <strong>r</strong> (raio) em relação ao centro <strong>(a, b)</strong>. Ao elevar as diferenças das coordenadas ao quadrado e somá-las, encontramos o quadrado do raio, isolando a posição geométrica perfeita de uma curva fechada no plano.</p>
+
+                            </div>
+
+
+                            <!-- Fórmula -->
+                            <p class="formulas-box formulas">
+                            \((x - a)^2 + (y - b)^2 = r^2\)
+                            </p>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <p><strong>(a, b)</strong> = centro da circunferência</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>(x, y)</strong> = ponto sobre a linha</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>r</strong> = raio</p>
+
+                            </div>
+
+                            <!-- Texto -->
+                            <div class="textbox">
+
+                                <p>Essa é a equação reduzida da elipse, uma "distorção" da circunferência onde os eixos horizontal e vertical têm tamanhos diferentes. Ela surge da definição geométrica de que a soma das distâncias de qualquer ponto <strong>(x, y)</strong> até dois focos fixos é constante. Os termos <strong>a e b</strong> representam os semieixos, enquanto <strong>(h, k) </strong>indica o deslocamento do centro no plano cartesiano.</p>
+
+                            </div>
+
+
+                            <!-- Fórmula -->
+                            <p class="formulas-box formulas" style="font-size: 20pt;">
+                            \(\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1\)
+                            </p>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <p><strong>(a, b)</strong> = semieixo</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>(x, y)</strong> = ponto qualquer</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>(h, k)</strong> = centro</p>
+
+                            </div>
+
+                            <!-- Texto -->
+                            <div class="textbox">
+
+                                <p>Essa é a lei de formação da função do segundo grau, cuja representação gráfica é uma parábola. O coeficiente a determina a abertura e a concavidade (para cima ou para baixo), o b indica a inclinação da curva ao cruzar o eixo vertical, e o c é o ponto exato onde a parábola corta o eixo y.</p>
+
+                            </div>
+
+
+                            <!-- Fórmula -->
+                            <p class="formulas-box formulas">
+                            \(y = ax^2 + bx + c\)
+                            </p>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <p><strong>a</strong> = coeficiente principal</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>b</strong> = coeficiente linear</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>c</strong> = termo independente</p>
+
+                                <p class="separador">|</p>
+
+                                <p><strong>(x, y)</strong> = coordenadas</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ========== Baricentro ========== -->
+                <div id="baricentro" class="boxes">
+
+                    <div class="conteudo">
+                        <div class="progressbar">
+
+                            <!-- Título -->
+                            <h2 class="titlebox">Baricentro</h2>
+
+                            <!-- Texto -->
+                            <div class="textbox">
+
+                                <p>Essa fórmula define as coordenadas do baricentro <strong>(G)</strong>, que é o centro de gravidade ou ponto de equilíbrio de um triângulo. Ele é obtido através da média aritmética das coordenadas dos três vértices <strong>A, B e C</strong>. Geometricamente, esse ponto é o encontro das três medianas do triângulo.</p>
+
+                            </div>
+
+
+                            <!-- Fórmula -->
+                            <p class="formulas-box formulas">\(G = \left( \frac{x_A + x_B + x_C}{3}, \frac{y_A + y_B + y_C}{3} \right)\)</p>
+
+                            <!-- Legenda da fórmula -->
+                            <div class="legendbox">
+
+                                <p><strong>G</strong> = baricentro</p>
+
+                                <p class="separador"> | </p>
+
+                                <p><strong>(xA, yA), (xB, yB), (xC, yC)</strong> = coordenadas do vértice</p>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+<!---------------------------------------------------------->
+
+    </div>  <!-- Empurra rodapé -->
+
+<!---------------------------------------------------------->
+
+    <!-- ========== RODAPÉ ========== -->
+    <footer class="main-footer">
+        <div class="footer-container">
+
+            <!-- Título e Subtítulo -->
+            <div class="footer-col about">
+
+                <h3 class="gradient-text">Geometria Analítica</h3>
+                <p class="textorodape">Plataforma interativa para o ensino de geometria analítica, transformando conceitos complexos em experiências visuais práticas.</p>
+
+            </div>
+
+
+            <!-- Menu -->
+            <div class="footer-col">
+                <h3 class="gradient-text">Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="#slide1">Início</a></li>
+                    <li><a href="#modulo1">Módulo 1</a></li>
+                    <li><a href="#modulo2">Módulo 2</a></li>
+                    <li><a href="#modulo3">Módulo 3</a></li>
+                    <li><a href="#modulo4">Módulo 4</a></li>
+                    <li><a href="#formulas-boxes">Fórmulas</a></li>
+                </ul>
+            </div>
+
+
+            <!-- Ícone do GitHub -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            
+
+            <!-- Créditos -->
+            <div class="footer-col">
+
+                <!-- Título -->
+                <h3 class="gradient-text">Dev Team</h3>
+                
+                <!-- Link dos perfis do GitHub -->
+                <div class="dev-cards">
+
+                    <!-- Link - Matheus -->
+                    <a href="https://github.com/rwvthr" target="_blank" class="dev-card">
+
+                        <i class="fab fa-github"></i>
+                        <span>Rwvthr</span>
+
+                    </a>
+
+                    <!-- Link - Felipe -->
+                    <a href="https://github.com/Felipe-dev7" target="_blank" class="dev-card">
+
+                        <i class="fab fa-github"></i>
+                        <span>Felipe-dev7</span>
+
+                    </a>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Repositório e copyright -->
+        <div class="footer-bottom">
+
+            <div class="bottom-content">
+
+                <p>&copy; 2026 CalcNexus. Designed and Developed by MF Team (Rwvthr and Felipe-dev7).</p>
+
+                <a href="https://github.com/Felipe-dev7/CalcNexus" class="repo-button" target="_blank">
+
+                    <i class="fab fa-github"></i> Source Code
+                    
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
