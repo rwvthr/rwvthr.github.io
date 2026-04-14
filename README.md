@@ -13,4 +13,4 @@ Este repositório tem o intuito de ajudar no estudo de Geometria Analítica, ser
 - Servir de guia rápido para consulta de fórmulas e propriedades.
 
 
-### 🌐 Acesse o site aqui: (CalcNexus)[https://rwvthr.github.io/]
+### 🌐 Acesse o site aqui: [CalcNexus](https://rwvthr.github.io/)
